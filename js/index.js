@@ -15,8 +15,17 @@ function initMap() {
         mapTypeId: 'roadmap',
 
     });
+    var map = new google.maps.Map(document.getElementById('map'),
+     map);
+
+     if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(function (position) {
+             initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+             map.setCenter(initialLocation);
+         });
+     }
 }
 
 function showStoreMarker(){
-    
+
 }
